@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: #bdcdd6;
+
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+nav .logo {
+  margin-right: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+}
+.section {
+  padding: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
