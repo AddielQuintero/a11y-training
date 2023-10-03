@@ -1,6 +1,10 @@
-.container {
-  display: flex;
-  flex-direction: column;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 nav {
@@ -30,9 +34,6 @@ nav a {
   color: #000;
   text-decoration: none;
 }
-.section {
-  padding: 20px;
-}
 
 .button {
   display: inline-block;
@@ -61,4 +62,48 @@ nav a {
   top: 0px;
   outline-color: transparent;
   transition: top 0.05s ease-in;
+}
+
+.header {
+  margin-top: 8px;
+  overflow: auto;
+  text-align: center;
+  background-color: darksalmon;
+}
+
+#section-one {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.section-one_content {
+  background-color: antiquewhite;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.section-one_content h3 {
+  margin: 1rem 0;
+}
+
+.section-one_aside {
+  width: 20%;
+  padding: 1rem;
+  background-color: aquamarine;
+}
+
+#section-two {
+  height: 500px;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  background-color: #bdcdd6;
+}
+
+.footer {
+  height: 3rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background-color: beige;
 }
