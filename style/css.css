@@ -71,10 +71,13 @@ nav a {
   background-color: darksalmon;
 }
 
+#main {
+  margin: 0.5rem 0;
+}
+
 #section-one {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
   gap: 0.5rem;
 }
 
