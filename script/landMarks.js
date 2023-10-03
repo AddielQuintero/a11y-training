@@ -61,6 +61,7 @@
     labelElement.style.padding = '2px 5px'
     labelElement.style.left = '0'
     labelElement.style[textPos] = '0'
+    labelElement.setAttribute('aria-hidden', true)
 
     element.prepend(labelElement)
   }
