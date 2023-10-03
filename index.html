@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style/css.css" />
   </head>
   <body>
+    <div id="skipLink"><a href="#content">Skip to main content</a></div>
+
     <nav>
       <div class="logo">
         <a href="#">
@@ -21,29 +23,26 @@
       </ul>
     </nav>
 
-    <section>
+    <section id="content">
       <h1>Welcome</h1>
       <p>This is an example section with button.</p>
 
       <h2>arial label</h2>
-      <button class="button" aria-label="to Send">Send</button>
+      <button class="button">Send</button>
 
       <h2>aria expanded</h2>
       <button
         class="button expandedButton"
         onclick="handleExpandedButton()"
         aria-controls="divExpand"
-        aria-label="menu"
         aria-expanded="false"
       >
         Menu
       </button>
-      <div style="display: none" id="divExpand" aria-hidden="true">aria-expanded button activated</div>
+      <div style="display: none" id="divExpand">aria-expanded button activated</div>
 
       <h2>aria pressed</h2>
-      <div class="button toggleButton" role="button" aria-label="Toggle: on" aria-pressed="true" tabindex="0">
-        On
-      </div>
+      <div class="button toggleButton" role="button" aria-pressed="true" tabindex="0">On</div>
     </section>
 
     <script type="text/javascript" src="script/script.js"></script>

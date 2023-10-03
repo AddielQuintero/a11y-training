@@ -9,7 +9,6 @@ function handleExpandedButton() {
 
   divExpanded.style.display = newIsExpanded ? 'block' : 'none'
   expandedButton.setAttribute('aria-expanded', newIsExpanded)
-  divExpanded.setAttribute('aria-hidden', isExpanded)
 }
 
 toggleButton.addEventListener('click', () => {
@@ -28,10 +27,10 @@ toggleButton.addEventListener('keydown', (event) => {
 
 function updateToggleButtonLabel() {
   if (isToggleButtonPressed) {
-    toggleButton.setAttribute('aria-label', 'Toggle: on')
+    // toggleButton.setAttribute('aria-label', 'Toggle: on')
     toggleButton.textContent = 'On'
   } else {
-    toggleButton.setAttribute('aria-label', 'Toggle: off')
+    // toggleButton.setAttribute('aria-label', 'Toggle: off')
     toggleButton.textContent = 'Off'
   }
 }
