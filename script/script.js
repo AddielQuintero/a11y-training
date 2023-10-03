@@ -34,3 +34,4 @@ function updateToggleButtonLabel() {
     toggleButton.textContent = 'Off'
   }
 }
+
