@@ -13,10 +13,20 @@ function handleExpandedButton() {
 }
 
 toggleButton.addEventListener('click', () => {
+  toggleButton.setAttribute('aria-pressed', !isToggleButtonPressed)
   isToggleButtonPressed = !isToggleButtonPressed
+  updateToggleButtonLabel()
+})
 
-  toggleButton.setAttribute('aria-pressed', isToggleButtonPressed)
+toggleButton.addEventListener('keydown', (event) => {
+  // if (event.keyCode === 13 || event.keyCode === 32) {
+  if (event.key === 'Enter' || event.code === 'Space') {
+    event.preventDefault()
+    toggleButton.click()
+  }
+})
 
+function updateToggleButtonLabel() {
   if (isToggleButtonPressed) {
     toggleButton.setAttribute('aria-label', 'Toggle: on')
     toggleButton.textContent = 'On'
@@ -24,4 +34,4 @@ toggleButton.addEventListener('click', () => {
     toggleButton.setAttribute('aria-label', 'Toggle: off')
     toggleButton.textContent = 'Off'
   }
-})
+}
