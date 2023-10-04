@@ -4,7 +4,6 @@ const landmarksNative = [
   { selector: 'nav', ariaEquivalent: 'navigation' },
   { selector: 'main', ariaEquivalent: 'main' },
   { selector: 'footer', ariaEquivalent: 'contentinfo' },
-  { selector: 'form', ariaEquivalent: 'form' },
 ]
 
 const landmarkRoles = [
@@ -12,7 +11,6 @@ const landmarkRoles = [
   'navigation', // For navigation areas.
   'main', // Main content of the page.
   'contentinfo', // Information about the main content (for example, the footer).
-  'form', // Form.
 ]
 
 let ariaLandmarkCount = 0
