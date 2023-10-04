@@ -12,6 +12,8 @@ const landmarkRoles = [
   'contentinfo', // Information about the main content (for example, the footer).
 ]
 
+const colors = { aria: '#00F', native: 'red' }
+
 let ariaLandmarkCount = 0
 let nativeLandmarkCount = 0
 let highlightedElements = new Set()
@@ -22,7 +24,7 @@ landmarkRoles.forEach((role) => {
   const elements = document.querySelectorAll(`[role="${role}"]`)
   const formattedRole = 'a' + role.charAt(0).toUpperCase() + role.slice(1)
   elements.forEach((element) => {
-    highlightElement(element, formattedRole, '#00F') // store the label element
+    highlightElement(element, formattedRole, colors.aria) // store the label element
     highlightedElements.add(element)
     ariaLandmarkCount++
   })
@@ -30,6 +32,10 @@ landmarkRoles.forEach((role) => {
     console.log(`${formattedRole}: ${elements.length} occurrences`)
   }
 })
+
+if (ariaLandmarkCount === 0) {
+  console.log('No ARIA landmarks used in page')
+}
 
 //Find and highlight NATIVE landmarks
 console.log(' ')
@@ -40,25 +46,22 @@ landmarksNative.forEach((item) => {
     if (element.hasAttribute('role')) {
       highlightedElements.add(element)
     } else if (!highlightedElements.has(element)) {
-      highlightElement(element, item.selector, 'red')
-      nativeLandmarkCount++
+      highlightElement(element, item.selector, colors.native)
     }
+    nativeLandmarkCount++
   })
   if (elements.length !== 0) {
     console.log(`${item.selector}: ${elements.length} occurrences`)
   }
 })
 
+if (nativeLandmarkCount === 0) {
+  console.log('No NATIVE landmarks used in page')
+}
+
 // Check and display messages
 if (ariaLandmarkCount === 0 && nativeLandmarkCount === 0) {
   console.log('No landmarks used in page')
-} else {
-  if (ariaLandmarkCount === 0) {
-    console.log('No ARIA landmarks used in page')
-  }
-  if (nativeLandmarkCount === 0) {
-    console.log('No NATIVE landmarks used in page')
-  }
 }
 
 //Highlights a given HTML element and adds a label with a specified text.
