@@ -71,6 +71,7 @@ Object.entries(roleCounts).forEach(([role, count]) => {
 
     elements.forEach((element) => {
       if (element.getAttribute('role') === role) {
+        console.error(`Element with invalid role '${role}':`, element);
         element.style.outline = '2px solid red'
         const positionStyle = window.getComputedStyle(element).position
         if (positionStyle === 'static') {
