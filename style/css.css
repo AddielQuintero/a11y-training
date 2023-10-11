@@ -98,7 +98,6 @@ nav a {
 }
 
 #section-two {
-  height: 500px;
   margin: 0.5rem 0;
   padding: 1rem;
   background-color: #bdcdd6;
@@ -109,4 +108,9 @@ nav a {
   padding: 1rem;
   margin-top: 0.5rem;
   background-color: beige;
+}
+
+.samp {
+  display: inline-block;
+  border: 1px solid red;
 }

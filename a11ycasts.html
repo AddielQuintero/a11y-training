@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A11y-training</title>
+    <link rel="stylesheet" href="style/css.css" />
+    <link rel="stylesheet" href="style/roving.css" />
+  </head>
+  <body>
+    <div role="navigation" id="skipLink"><a href="#main">Skip to main content</a></div>
+
+    <nav role="navigation">
+      <div class="logo">
+        <a href="#">
+          <img src="images/logo.png" alt="Logo de la empresa" width="40" />
+        </a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="a11ycasts.html">a11yCasts</a></li>
+        <li><a href="#3">Services</a></li>
+        <li><a href="#4">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section id="section-one">
+        <div class="section-one_content">
+          <div class="title">
+            <h2>Welcome a11yCasts</h2>
+            <p>This is Roving tabindex</p>
+          </div>
+
+          <div class="roving">
+            <!-- <div>
+              <h3 id="drink-options">Standard Roving Tabindex</h3>
+              <ul id="group1" class="radio-group" role="radiogroup" aria-labelledby="drink-options">
+                <li tabindex="0" class="radio" role="radio" aria-checked="false">Water</li>
+                <li tabindex="-1" class="radio" role="radio" aria-checked="false">Tea</li>
+                <li tabindex="-1" class="radio" role="radio" aria-checked="false">Coffee</li>
+                <li tabindex="-1" class="radio" role="radio" aria-checked="false">Cola</li>
+                <li tabindex="-1" class="radio" role="radio" aria-checked="false">Ginger Ale</li>
+              </ul>
+            </div> -->
+
+            <div>
+              <h3 id="drink-options">Custom Roving Tabindex</h3>
+              <radio-group class="radio-group" aria-labelledby="drink-options">
+                <radio-button class="radio">Water</radio-button>
+                <radio-button class="radio">Tea</radio-button>
+                <radio-button class="radio">Coffee</radio-button>
+                <radio-button class="radio">Cola</radio-button>
+                <radio-button class="radio">Ginger Ale</radio-button>
+              </radio-group>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <h2>Footer</h2>
+    </footer>
+
+    <!-- <script type="text/javascript" src="script/script.js"></script> -->
+    <!-- <script type="text/javascript" src="script/landMarks.js"></script> -->
+    <!-- <script type="text/javascript" src="script/aria-roles.js"></script> -->
+    <script type="text/javascript" src="script/custom-roving.js"></script>
+    <!-- <script type="text/javascript" src="script/standard-roving.js"></script> -->
+  </body>
+</html>

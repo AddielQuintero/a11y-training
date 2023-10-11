@@ -50,6 +50,7 @@ landmarksNative.forEach((item) => {
     }
     nativeLandmarkCount++
   })
+
   if (elements.length !== 0) {
     console.log(`${item.selector}: ${elements.length} occurrences`)
   }

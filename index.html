@@ -16,8 +16,8 @@
         </a>
       </div>
       <ul>
-        <li><a href="#1">Home</a></li>
-        <li><a href="#2">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="a11ycasts.html">a11yCasts</a></li>
         <li><a href="#3">Services</a></li>
         <li><a href="#4">Contact</a></li>
       </ul>
@@ -44,8 +44,8 @@
           </div>
 
           <h3>arial label</h3>
+          <!-- <label for="button">personal send</label> -->
           <button class="button">Send</button>
-
           <h3>aria expanded</h3>
           <button
             class="button expandedButton"
@@ -64,7 +64,9 @@
         <aside role="complement" class="section-one_aside">
           <div class="title">
             <h2>Aside section one</h2>
+            <p>An accessible name</p>
           </div>
+          <a href="#a"><img src="tequila.png" alt="Chaos tequila" />esto es un as</a>
         </aside>
       </section>
 
@@ -77,7 +79,69 @@
         <div>
           <label for="myinput">first name</label>
           <input id="myinput" type="text" />
-          <!-- First name: <input type="text" title="First Name title"> -->
+        </div>
+        <br />
+        <div class="samp">
+          <table>
+            <tbody>
+              <tr>
+                <th id="namelabel" scope="col">Name</th>
+                <th id="agelabel" scope="col">Age</th>
+                <th id="weightlabel" scope="col">Weight</th>
+              </tr>
+              <tr>
+                <td><input type="text" name="name1" aria-labelledby="namelabel" /></td>
+                <td><input type="text" size="3" name="age1" aria-labelledby="agelabel" /></td>
+                <td><input type="text" size="4" name="weight1" aria-labelledby="weightlabel" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" name="name2" aria-labelledby="namelabel" /></td>
+                <td><input type="text" size="3" name="age2" aria-labelledby="agelabel" /></td>
+                <td><input type="text" size="4" name="weight2" aria-labelledby="weightlabel" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" name="name2" aria-labelledby="namelabel" /></td>
+                <td><input type="text" size="3" name="age2" aria-labelledby="agelabel" /></td>
+                <td><input type="text" size="4" name="weight2" aria-labelledby="weightlabel" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <br />
+
+        <div>
+          <button id="submitBtn">Enviar</button>
+          <p id="submitInfo">Asegúrese de haber llenado todos los campos antes de enviar.</p>
+          <label for="info">second input</label>
+          <input type="text" id="info" aria-describedby="submitInfo" />
+        </div>
+        <br />
+        <div class="samp">
+          <table>
+            <tbody>
+              <tr>
+                <th scope="col">Name</th>
+                <th id="officenum" scope="col">Office Number</th>
+                <th id="phonelabel" scope="col">Phone</th>
+              </tr>
+              <tr>
+                <th id="cyndi" scope="row">Cyndi</th>
+                <td><input type="text" size="4" name="office1" aria-labelledby="cyndi officenum" /></td>
+                <td><input type="text" size="12" name="phone1" aria-labelledby="cyndi phonelabel" /></td>
+              </tr>
+              <tr>
+                <th id="jared" scope="row">Jared</th>
+                <td><input type="text" size="4" name="office2" aria-labelledby="jared officenum" /></td>
+                <td><input type="text" size="12" name="phone2" aria-labelledby="jared phonelabel" /></td>
+              </tr>
+              <tr>
+                <th id="jon" scope="row">Jonathan</th>
+                <td><input type="text" size="4" name="office3" aria-labelledby="jon officenum" /></td>
+                <td><input type="text" size="12" name="phone3" aria-labelledby="jon phonelabel" /></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>
