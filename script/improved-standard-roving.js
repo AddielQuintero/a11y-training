@@ -52,3 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', () => handleClick(item, index))
   })
 })
+
