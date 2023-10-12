@@ -97,10 +97,22 @@ nav a {
   background-color: aquamarine;
 }
 
+.section-two_aside {
+  width: 20%;
+  padding: 1rem;
+  background-color: cadetblue;
+}
+
 #section-two {
+  display: flex;
   margin: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.section-two_content {
   padding: 1rem;
   background-color: #bdcdd6;
+  flex-grow: 1;
 }
 
 .footer {
