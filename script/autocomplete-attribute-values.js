@@ -10,25 +10,27 @@ const validAutocompleteValues = [
   'tel-local-prefix',  'tel-local-suffix',  'tel-extension',  'email',  'impp'
 ]
 
-const isAriaHidden = (element) => element.getAttribute('aria-hidden') === 'true';
-const isDisplayNone = (style) => style.display === 'none';
-const isVisibilityHidden = (style) => style.visibility === 'hidden';
-const hasZeroSize = (element) => element.offsetWidth === 0 || element.offsetHeight === 0;
+
+const isAriaHidden = (element) => element.getAttribute('aria-hidden') === 'true'
+const isDisplayNone = (style) => style.display === 'none'
+const isVisibilityHidden = (style) => style.visibility === 'hidden'
+const hasZeroSize = (element) => element.offsetWidth === 0 || element.offsetHeight === 0
 
 const isVisible = (element) => {
-  const style = window.getComputedStyle(element);
-  return !(
-    isAriaHidden(element) ||
-    isDisplayNone(style) ||
-    isVisibilityHidden(style) ||
-    hasZeroSize(element)
-  );
+  const style = window.getComputedStyle(element)
+  return !(isAriaHidden(element) || isDisplayNone(style) || isVisibilityHidden(style) || hasZeroSize(element))
 }
 
+const autocompleteCounts = {}
 const inputs = document.querySelectorAll('input')
 const visibleInputs = [...inputs].filter(isVisible)
 
-visibleInputs.forEach((input) => {
+const processAutocompleteValues = (input, autocompleteCounts) => {
+  const autocompleteValue = input.getAttribute('autocomplete')
+  autocompleteCounts[autocompleteValue] = (autocompleteCounts[autocompleteValue] || 0) + 1
+}
+
+const annotateAndAttach = (input) => {
   const autocompleteValue = input.getAttribute('autocomplete')
 
   const container = document.createElement('div')
@@ -49,13 +51,26 @@ visibleInputs.forEach((input) => {
   span.style.color = 'white'
   span.style.fontSize = '11px'
 
+
   if (!autocompleteValue) {
     span.innerText = 'No'
+    console.error(`Input without autocomplete '${autocompleteValue}':`, input)
   } else if (!validAutocompleteValues.includes(autocompleteValue)) {
     span.innerText = '⚠️'
+    console.error(`Input with invalid autocomplete '${autocompleteValue}':`, input)
   } else {
     span.innerText = autocompleteValue
   }
 
   container.appendChild(span)
+}
+
+visibleInputs.forEach((input) => processAutocompleteValues(input, autocompleteCounts))
+
+console.log(`${visibleInputs.length} elements with autocomplete attribute were found on this page.`)
+console.log('Count of each autocomplete:')
+Object.entries(autocompleteCounts).forEach(([role, count]) => {
+  console.log(`${role}: ${count} occurrences`)
 })
+
+visibleInputs.forEach((input) => annotateAndAttach(input))
