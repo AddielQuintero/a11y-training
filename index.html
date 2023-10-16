@@ -45,13 +45,14 @@
 
           <h3>arial label</h3>
           <!-- <label for="button">personal send</label> -->
-          <button class="button">Send</button>
+          <button class="button" tabindex="1">Send</button>
           <h3>aria expanded</h3>
           <button
             class="button expandedButton"
             onclick="handleExpandedButton()"
             aria-controls="divExpand"
             aria-expanded="false"
+            tabindex="-1"
           >
             Menu
           </button>
@@ -59,6 +60,9 @@
 
           <h3>aria pressed</h3>
           <div class="button toggleButton" role="button" aria-pressed="true" tabindex="0">On</div>
+
+          <br />
+          <a href="#" class="button_a" role="button" tabindex="2">On</a>
         </div>
 
         <aside role="complement" class="section-one_aside">
@@ -181,6 +185,7 @@
 
     <script type="text/javascript" src="script/script.js"></script>
     <script type="text/javascript" src="script/textarea-character-counter.js"></script>
+    <!-- <script type="text/javascript" src="script/tabindex.js"></script> -->
     <!-- <script type="text/javascript" src="script/autocomplete-attribute-values.js"></script> -->
     <!-- <script type="text/javascript" src="script/landMarks.js"></script> -->
     <!-- <script type="text/javascript" src="script/aria-roles.js"></script> -->
