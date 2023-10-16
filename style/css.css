@@ -124,7 +124,7 @@ nav a {
 
 .samp {
   display: inline-block;
-  border: 1px solid red;
+  border: 1px solid gray;
 }
 
 /** a11yCasts */
@@ -135,4 +135,10 @@ nav a {
 
 .textarea-container p {
   margin: 0;
+}
+
+.form {
+  display: flex;
+  gap: 2rem;
+  width: 20%;
 }

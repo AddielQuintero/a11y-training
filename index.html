@@ -77,10 +77,26 @@
           <br />
           <div><img src="images/nx.png" alt="Next" /></div>
           <br />
-          <div>
-            <label for="myinput">first name</label>
-            <input id="myinput" type="text" />
-          </div>
+          <form class="form">
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+            </div>
+            <div>
+              <label for="middleNames">Middle Names</label>
+              <input type="text" id="middleNames" name="middleName" autocomplete="additional-nam" />
+            </div>
+            <div>
+              <label for="lastName">Last name/surname</label>
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+            </div>
+          </form>
+          <br />
+          <br />
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" />
+
+          <br />
           <br />
           <div class="samp">
             <table>
@@ -112,11 +128,12 @@
           <br />
 
           <div>
-            <button id="submitBtn">Enviar</button>
-            <p id="submitInfo">Asegúrese de haber llenado todos los campos antes de enviar.</p>
-            <label for="info">second input</label>
-            <input type="text" id="info" aria-describedby="submitInfo" />
+            <button id="submitBtn">Send</button>
+            <p id="submitInfo">Make sure you have filled out all fields before submitting.</p>
+            <label for="info">Email</label>
+            <input type="text" id="info" aria-describedby="submitInfo" autocomplete="emai" />
           </div>
+
           <br />
           <div class="samp">
             <table>
@@ -164,6 +181,7 @@
 
     <script type="text/javascript" src="script/script.js"></script>
     <script type="text/javascript" src="script/textarea-character-counter.js"></script>
+    <!-- <script type="text/javascript" src="script/autocomplete-attribute-values.js"></script> -->
     <!-- <script type="text/javascript" src="script/landMarks.js"></script> -->
     <!-- <script type="text/javascript" src="script/aria-roles.js"></script> -->
   </body>
