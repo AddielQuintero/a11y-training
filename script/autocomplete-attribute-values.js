@@ -10,18 +10,19 @@ const validAutocompleteValues = [
   'tel-local-prefix',  'tel-local-suffix',  'tel-extension',  'email',  'impp'
 ]
 
+const isAriaHidden = (element) => element.getAttribute('aria-hidden') === 'true';
+const isDisplayNone = (style) => style.display === 'none';
+const isVisibilityHidden = (style) => style.visibility === 'hidden';
+const hasZeroSize = (element) => element.offsetWidth === 0 || element.offsetHeight === 0;
+
 const isVisible = (element) => {
-  const style = window.getComputedStyle(element)
-  if (
-    element.getAttribute('aria-hidden') === 'true' ||
-    style.display === 'none' ||
-    style.visibility === 'hidden' ||
-    element.offsetWidth === 0 ||
-    element.offsetHeight === 0
-  ) {
-    return false
-  }
-  return true
+  const style = window.getComputedStyle(element);
+  return !(
+    isAriaHidden(element) ||
+    isDisplayNone(style) ||
+    isVisibilityHidden(style) ||
+    hasZeroSize(element)
+  );
 }
 
 const inputs = document.querySelectorAll('input')
