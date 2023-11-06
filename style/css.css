@@ -135,6 +135,12 @@ nav .navigation__menu {
   background-color: beige;
 }
 
+.footer__menu {
+  display: flex;
+  gap: 0.8rem;
+  margin: 0.5rem 0;
+}
+
 .samp {
   display: inline-block;
   border: 1px solid gray;
