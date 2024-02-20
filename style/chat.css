@@ -10,8 +10,22 @@ body {
   width: 250px;
   background: #333;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
   overflow-y: auto;
+}
+.sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+.sidebar ul li:hover {
+  background-color: #212121;
+  border-radius: 8px;
+}
+.sidebar ul a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 20px;
 }
 .chat-window {
   flex-grow: 1;
@@ -23,6 +37,9 @@ body {
   background: #222;
   color: #fff;
   padding: 15px;
+}
+.chat-container {
+  margin-bottom: 4rem;
 }
 .message {
   margin-bottom: 20px;
@@ -42,6 +59,9 @@ body {
   width: fit-content;
   border-radius: 10px;
 }
+.message-user p {
+  margin: 0;
+}
 .message-input {
   position: fixed;
   bottom: 0;
@@ -55,6 +75,12 @@ body {
 
 .message-input button {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.message-input input {
+  width: -webkit-fill-available;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
