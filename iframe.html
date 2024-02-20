@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A11y-training</title>
+    <link rel="stylesheet" href="style/css.css" />
+  </head>
+  <body>
+    <div role="navigation" id="skipLink"><a href="#main">Skip to main content</a></div>
+
+    <nav role="navigation">
+      <div class="logo">
+        <a href="#">
+          <img id="personal" src="images/logo.png" alt="Logo de la empresa" width="40" />
+        </a>
+      </div>
+      <div class="navigation__menu">
+        <ul role="list">
+          <li role="listitem"><a href="index.html">Home</a></li>
+          <li role="listitem"><a href="a11ycasts.html">a11yCasts</a></li>
+          <li role="listitem"><a href="iframe.html">iframe</a></li>
+          <li role="listitem"><a href="chat.html">Chat</a></li>
+        </ul>
+
+        <ul>
+          <li><a href="index.html">Home2</a></li>
+          <li><a href="a11ycasts.html">a11yCasts2</a></li>
+          <li><a href="#3">Services2</a></li>
+          <li><a href="#4">Contact2</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header role="banner" class="header">
+      <h1>ARIA ( Accessible Rich Internet Applications ):</h1>
+      <p>
+        A set of special attributes for accessibility that can be added to any tag, but especially adapted to
+        HTML.
+      </p>
+      <p>
+        It was created by the W3C, they created it so that we can communicate special changes in our
+        applications.
+      </p>
+    </header>
+
+    <main role="none" id="main">
+      <section id="section-two">
+        <div class="section-two_content">
+          <!-- *********************************************************** -->
+
+          <iframe
+            width="426"
+            height="240"
+            src="https://www.youtube.com/embed/7nQpZ5FwhGc"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="426"
+            height="240"
+            fetch-priority="high,high"
+            class="dxp-embed-responsive-item"
+            src="https://www.youtube-nocookie.com/embed/UDkwGwV3VSE"
+            frameborder="0"
+            allowfullscreen=""
+            title="Video frame"
+          ></iframe>
+          <!-- src="https://www.youtube-nocookie.com/embed/UDkwGwV3VSE?autoplay=1&amp;mute=1" -->
+
+          <div className="p-2">
+            <h1>Video con tabindex="-1":</h1>
+
+            <video width="320" height="240" controls tabindex="-1">
+              <source src="movie.mp4" type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+
+          <div className="p-2">
+            <p>Video sin tabindex:</p>
+            <video width="320" height="240" controls webkit-playsinline="" controlslist="nodownload">
+              <source src="movie.mp4" type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+          <div className="p-2">
+            <p>Video nativo con aria-label:</p>
+            <video
+              className="video"
+              width="320"
+              height="240"
+              controls
+              tabindex="-1"
+              aria-label="YouTube Video Player - video"
+            >
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+
+          <div className="p-2">
+            <p>div con aria-label, tabIndex y video</p>
+            <div
+              tabindex="-1"
+              id="movie_player"
+              data-version="/s/player/d23221b6/player_ias.vflset/en_US/base.js"
+              aria-label="YouTube Video Player"
+            >
+              <div className="html5-video-container" data-layer="0">
+                <video tabindex="-1" className="video" webkit-playsinline="" controls></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <h2>Footer</h2>
+      <div class="footer__menu" role="list">
+        <div role="listitem"><a href="index.html">Home3</a></div>
+        <div role="listitem"><a href="a11ycasts.html">a11yCasts3</a></div>
+        <div role="listitem"><a href="#3">Services3</a></div>
+        <div role="listitem"><a href="#4">Contact3</a></div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="script/textarea-character-counter.js"></script>
+    <!-- <script type="text/javascript" src="script/tabindex.js"></script> -->
+    <!-- <script type="text/javascript" src="script/autocomplete-attribute-values.js"></script> -->
+    <!-- <script type="text/javascript" src="script/landMarks.js"></script> -->
+    <!-- <script type="text/javascript" src="script/aria-roles.js"></script> -->
+  </body>
+</html>

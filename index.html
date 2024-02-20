@@ -12,15 +12,15 @@
     <nav role="navigation">
       <div class="logo">
         <a href="#">
-          <img src="images/logo.png" alt="Logo de la empresa" width="40" />
+          <img id="personal" src="images/logo.png" alt="Logo de la empresa" width="40" />
         </a>
       </div>
       <div class="navigation__menu">
         <ul role="list">
           <li role="listitem"><a href="index.html">Home</a></li>
           <li role="listitem"><a href="a11ycasts.html">a11yCasts</a></li>
-          <li role="listitem"><a href="#3">Services</a></li>
-          <li role="listitem"><a href="#4">Contact</a></li>
+          <li role="listitem"><a href="iframe.html">iframe</a></li>
+          <li role="listitem"><a href="chat.html">Chat</a></li>
         </ul>
 
         <ul>
@@ -53,9 +53,9 @@
           </div>
 
           <h3>arial label</h3>
-          <!-- <label for="button">personal send</label> -->
+          <label for="button">personal send</label>
           <button class="button" tabindex="1">Send</button>
-          <h3>aria expanded</h3>
+          <div role="heading" aria-level="3" class="heading">aria expanded</div>
           <button
             class="button expandedButton"
             onclick="handleExpandedButton()"
@@ -76,15 +76,91 @@
 
         <aside role="complement" class="section-one_aside">
           <div class="title">
-            <h2>Aside section one</h2>
+            <h2 role="heading" aria-level="2">Aside section one</h2>
             <p>An accessible name</p>
           </div>
-          <a href="#a"><img src="tequila.png" alt="Chaos tequila" />esto es un as</a>
+          <div class="container__img">
+            <a href="#a"><img src="tequila.png" alt="Chaos tequila" />"this is a tequila image"</a>
+          </div>
+          <div class="div__image" role="img" aria-label="Accessibility Image"></div>
+
+          <div class="container__svg">
+            <svg
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              width="16px"
+              height="16px"
+            >
+              <path
+                d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"
+              />
+            </svg>
+          </div>
         </aside>
       </section>
 
       <section id="section-two">
         <div class="section-two_content">
+          <!-- <button ... aria-expanded="false" aria-controls="currencyList">Your Card Currency</button> -->
+          <!-- <ul id="currencyList" class="dropdown-menu" role="list"> -->
+          <!-- Elementos de la lista -->
+          <!-- </ul> -->
+
+          <!-- <form
+            role="form"
+            method="post"
+            action="javascript:void(0)"
+            id="locatorForm"
+            class="form-horizontal ng-dirty ng-valid-parse ng-valid ng-valid-required"
+            ng-submit="saveMapInput()"
+          >
+            ...
+            <input
+              type="text"
+              id="searchforATM"
+              aria-label="search for ATM"
+              class="input-search form-control ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+              name="searchforATM"
+              value=""
+              ng-model="addressSearch"
+              placeholder="Enter the address to search nearest locations"
+              required=""
+            />
+
+            ...
+          </form> -->
+          <!-- 
+          <form
+            role="form"
+            method="post"
+            action="javascript:void(0)"
+            id="locatorForm"
+            class="form-horizontal ng-dirty ng-valid-parse ng-valid ng-valid-required"
+            ng-submit="saveMapInput()"
+            aria-label="locator form"
+          >
+            ...
+            <label for="searchforATM" class="dxp-sr-only"
+              >Enter the address to search nearest locations</label
+            >
+            <input
+              type="text"
+              id="searchforATM"
+              aria-label="search for ATM"
+              class="input-search form-control ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+              name="searchforATM"
+              value=""
+              ng-model="addressSearch"
+              placeholder="Enter the address to search nearest locations"
+              required=""
+            />
+
+            ...
+          </form> -->
+
+          <!-- *********************************************************** -->
+
           <h2>Welcome Section two</h2>
           <p>This is an example section with "Label" and "Name".</p>
           <br />
@@ -147,6 +223,15 @@
             <input type="text" id="info" aria-describedby="submitInfo" autocomplete="emai" />
           </div>
 
+          <div class="heading-wrapper">
+            <h1 class="dxp-mb-0 dxp-mt-4 h2">
+              <span aria-hidden="true">
+                <img src="/ruta/a/la/imagen.png" alt="" class="dxp-img-fluid" style="max-width: 180px" />
+              </span>
+              Mastercard Digital Doors®
+            </h1>
+          </div>
+
           <br />
           <div class="samp">
             <table>
@@ -180,9 +265,170 @@
             <h2>Aside section two</h2>
             <p>An accessible name</p>
           </div>
+
           <div class="textarea-container">
             <textarea id="myTextarea" maxlength="100" aria-describedby="charCount"></textarea>
             <p id="charCount" aria-live="polite">100 characters remaining.</p>
+          </div>
+
+          <ul class="dropdown-menu" role="list">
+            <li class="dontClose" role="listitem">
+              <div class="input-group input-group-sm search-control input-container">
+                <span class="dxp-icon dxp-icon-small dxp-icon-search search-icon"></span>
+                <input
+                  type="text"
+                  id="cardCurr"
+                  name="cardCurr"
+                  tabindex="0"
+                  class="dxp-form-control search-input ng-pristine ng-valid ng-empty ng-touched"
+                  ng-model="currencySearch"
+                  ng-focus="validateDropdown('card', true)"
+                  ng-blur="validateDropdown('card')"
+                  placeholder="Search"
+                  aria-label="Dropdown"
+                />
+              </div>
+            </li>
+            <li
+              ng-repeat="cCountry in countryListObj | filter:currencySearch: startsWith"
+              ng-init="$index == countryListObj.length-1 &amp;&amp; refreshDropdown()"
+              role="list"
+              class="ng-scope"
+            >
+              <a
+                tabindex="0"
+                ng-click="dropdownSelectItem(cCountry,'cardCurrency')"
+                aria-label="To"
+                href="javascript:void(0)"
+                role="listitem"
+                ng-focus="validateDropdown('card', true)"
+                class="ng-binding"
+              >
+                AFGHANISTAN AFGHANI - AFN
+              </a>
+            </li>
+            <li
+              ng-repeat="cCountry in countryListObj | filter:currencySearch: startsWith"
+              ng-init="$index == countryListObj.length-1 &amp;&amp; refreshDropdown()"
+              role="list"
+              class="ng-scope"
+            >
+              <a
+                tabindex="0"
+                ng-click="dropdownSelectItem(cCountry,'cardCurrency')"
+                aria-label="To"
+                href="javascript:void(0)"
+                role="listitem"
+                ng-focus="validateDropdown('card', true)"
+                class="ng-binding"
+              >
+                ALBANIAN LEK - ALL
+              </a>
+            </li>
+            <li
+              ng-repeat="cCountry in countryListObj | filter:currencySearch: startsWith"
+              ng-init="$index == countryListObj.length-1 &amp;&amp; refreshDropdown()"
+              role="list"
+              class="ng-scope"
+            >
+              <a
+                tabindex="0"
+                ng-click="dropdownSelectItem(cCountry,'cardCurrency')"
+                aria-label="To"
+                href="javascript:void(0)"
+                role="listitem"
+                ng-focus="validateDropdown('card', true)"
+                class="ng-binding"
+              >
+                ALGERIAN DINAR - DZD
+              </a>
+            </li>
+            <p class="sr-only" tabindex="0" id="noResultsFound" aria-label="No results found"></p>
+          </ul>
+
+          <div
+            id="bank-dropdown"
+            class="bank-selector-dropdown"
+            role="application"
+            aria-label="Dropdown list for banks"
+          >
+            <label for="searchAll">Select your financial institution</label>
+            <select ...>
+              <option value="" class="">Filter by Bank</option>
+              ...
+            </select>
+          </div>
+
+          <div role="grid">
+            <div role="row">
+              <div role="gridcell" aria-selected="true">Celda seleccionada</div>
+              <div role="gridcell">Otra celda</div>
+            </div>
+          </div>
+
+          <button
+            class="ytp-play-button ytp-button"
+            aria-keyshortcuts="k"
+            data-title-no-tooltip="Play"
+            aria-label="Play keyboard shortcut k"
+            title="Play (k)"
+          >
+            ...
+          </button>
+
+          <button
+            class="ytp-play-button ytp-button"
+            aria-keyshortcuts="k"
+            data-title-no-tooltip="Pause"
+            aria-label="Pause keyboard shortcut k"
+            title="Pause (k)"
+          >
+            ...
+          </button>
+
+          <button
+            class="ytp-play-button ytp-button"
+            aria-keyshortcuts="k"
+            data-title-no-tooltip="Replay"
+            aria-label="Pause keyboard shortcut k"
+            title="Replay"
+          >
+            ...
+          </button>
+
+          <div class="dropdown-block select-wrapper open">
+            <button
+              id="cardCurrency"
+              name="cardCurrency"
+              class="dropdown-toggle dropdown-caret ng-binding"
+              ng-class="{'has-error' : !cCurr }"
+              ng-blur="validateDropdown('card')"
+              ng-enter="validateDropdown('card')"
+              data-toggle="dropdown"
+              tabindex="0"
+              title="Your Card Currency"
+              aria-labelledby="cardcurrency"
+            >
+              Your Card Currency
+            </button>
+            <ul class="dropdown-menu" role="listbox">
+              <li class="dontClose" role="option">
+                <div class="input-group input-group-sm search-control input-container">
+                  <span class="dxp-icon dxp-icon-small dxp-icon-search search-icon"></span>
+                  <input
+                    type="text"
+                    id="cardCurr"
+                    name="cardCurr"
+                    tabindex="0"
+                    placeholder="Search"
+                    aria-label="Dropdown"
+                  />
+                </div>
+              </li>
+              <li role="option" class="ng-scope" tabindex="0">AFN</li>
+              <li role="option" class="ng-scope" tabindex="0">ALL</li>
+              <li role="option" aria-labelledby="noResultsFound" tabindex="0">No results found</li>
+            </ul>
           </div>
         </aside>
       </section>

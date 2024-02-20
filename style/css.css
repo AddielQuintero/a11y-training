@@ -58,6 +58,9 @@ nav .navigation__menu {
   color: #000;
   cursor: pointer;
 }
+#skipLink {
+  font-size: 14px;
+}
 
 #skipLink a {
   padding: 6px;
@@ -110,6 +113,22 @@ nav .navigation__menu {
   background-color: aquamarine;
 }
 
+.div__image {
+  height: 32px;
+  width: 32px;
+  background-image: url(../images/logo.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.container__img {
+  margin-bottom: 1rem;
+}
+
+.container__svg {
+  margin: 1rem 0;
+}
+
 .section-two_aside {
   width: 20%;
   padding: 1rem;
@@ -160,4 +179,22 @@ nav .navigation__menu {
   display: flex;
   gap: 2rem;
   width: 20%;
+}
+
+.heading {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 18.72px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
