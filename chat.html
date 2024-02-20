@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Accesible</title>
+    <link rel="stylesheet" href="style/chat.css" />
+    <script>
+      let i = 0
+      const messages = [
+        'Hello, how are you?',
+        'Welcome to the accessible chat!',
+        'This message will be announced automatically.',
+        'Exploring accessibility features.',
+        'Text is updated and read aloud.',
+        'Is there anything else I can assist you with today?',
+      ]
+
+      function addMessage() {
+        let chatBox = document.getElementById('chat')
+
+        if (!chatBox) {
+          chatBox = document.createElement('div')
+          chatBox.id = 'chat'
+          chatBox.className = 'message message-bot'
+
+          const chatContainer = document.querySelector('.chat-container')
+          chatContainer.appendChild(chatBox)
+        }
+
+        if (i < messages.length) {
+          const message = document.createElement('p')
+          message.textContent = messages[i++]
+          chatBox.appendChild(message)
+          setTimeout(addMessage, 3000)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div>New chat</div>
+    </div>
+
+    <div class="chat-window">
+      <div class="chat-header">AlliBot</div>
+      <div class="chat-container" aria-live="polite" aria-relevant="additions">
+        <div class="message message-user">Hello!!!!!!!!</div>
+        <!-- <div id="chat" class="message message-bot"></div> -->
+      </div>
+    </div>
+    <div class="message-input">
+      <button onclick="addMessage()">Enviar Mensaje</button>
+    </div>
+  </body>
+</html>
