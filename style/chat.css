@@ -38,6 +38,10 @@ body {
   color: #fff;
   padding: 15px;
 }
+.chat-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
 .chat-container {
   margin-bottom: 4rem;
 }
@@ -51,6 +55,7 @@ body {
   border-radius: 10px;
 }
 .message-user {
+  /* display: grid; */
   text-align: right;
   padding: 10px;
   background-color: #2d9596;
