@@ -30,7 +30,7 @@ body {
 .chat-window {
   flex-grow: 1;
   background: #fff;
-  padding: 20px;
+  padding: 20px 20px 60px;
   overflow-y: auto;
 }
 .chat-header {
@@ -41,9 +41,6 @@ body {
 .chat-header h1 {
   margin: 0;
   font-size: 20px;
-}
-.chat-container {
-  margin-bottom: 4rem;
 }
 .message {
   margin-bottom: 20px;

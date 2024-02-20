@@ -49,5 +49,8 @@ function addBotMessages() {
 
 function scrollToBottom() {
   const chatContainer = document.querySelector('.chat-container')
-  chatContainer.scrollTop = chatContainer.scrollHeight
+  const lastMessage = chatContainer.lastElementChild
+  if (lastMessage) {
+    lastMessage.scrollIntoView(true)
+  }
 }
