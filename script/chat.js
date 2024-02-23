@@ -31,8 +31,12 @@ window.onload = function () {
 function addUserMessage(text) {
   const chatContainer = document.querySelector('.chat-container')
   const botChat = document.createElement('div') // Create a new div for bot messages
+  const lang = messageCount % 2 === 0 ? 'en' : 'es'
   botChat.className = 'message message-user'
+  botChat.setAttribute('lang', lang)
   chatContainer.appendChild(botChat)
+
+
   const userMessageElement = document.createElement('p')
   userMessageElement.textContent = text
   botChat.appendChild(userMessageElement)
