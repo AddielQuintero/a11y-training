@@ -1,4 +1,4 @@
-const messages = [
+const messagesEn = [
   'Hello, how are you?',
   'Welcome to the accessible chat!',
   'This message will be announced automatically.',
@@ -7,6 +7,16 @@ const messages = [
   'Is there anything else I can assist you with today?',
 ]
 
+const messagesEs = [
+  'Hola, ¿cómo estás?',
+  'Bienvenido al chat accesible.',
+  'Este mensaje se anunciará automáticamente.',
+  'Explorando las funciones de accesibilidad.',
+  'El texto se actualiza y se lee en voz alta.',
+  '¿Hay algo más en lo que pueda ayudarte hoy?',
+]
+
+let messageCount = 0
 window.onload = function () {
   const input = document.getElementById('userInput')
   input.addEventListener('keydown', function (event) {
@@ -34,6 +44,14 @@ function addBotMessages() {
   const botChat = document.createElement('div') // Create a new div for bot messages
   botChat.className = 'message message-bot'
   chatContainer.appendChild(botChat)
+  
+  const messages = messageCount % 2 === 0 ? messagesEn : messagesEs
+  const lang = messageCount % 2 === 0 ? 'en' : 'es'
+  console.log("🚀  lang:", lang)
+  console.log("🚀  messageCount:", messageCount)
+  messageCount++
+
+  botChat.setAttribute('lang', lang)
 
   messages.forEach((msg, index) => {
     setTimeout(() => {
@@ -41,10 +59,10 @@ function addBotMessages() {
       botMessageElement.textContent = msg
       botChat.appendChild(botMessageElement)
       scrollToBottom()
-    }, 1500 * index) // Add each bot message after a delay
+    }, 1000 * index) // Add each bot message after a delay
   })
 
-  scrollToBottom()
+  // scrollToBottom()
 }
 
 function scrollToBottom() {
