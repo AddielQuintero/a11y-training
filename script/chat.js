@@ -84,3 +84,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.body.appendChild(okDescription)
 })
+
+function initializeIcons() {
+  var listItems = document.querySelectorAll('.list2 .list-item')
+
+  listItems.forEach(function (listItem) {
+    listItem.setAttribute('tabindex', '0')
+    listItem.querySelector('a').setAttribute('tabindex', '-1')
+  })
+}
+
+window.addEventListener('load', initializeIcons)
