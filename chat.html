@@ -3,13 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chat Accesible</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="style/chat.css" />
   </head>
   <body>
     <div class="sidebar">
       <ul role="list">
-        <li role="listitem"><a href="chat.html">Chat 1</a></li>
-        <li role="listitem"><a href="chat_2.html">Chat 2</a></li>
+        <li id="chat1" class="list-item" role="listitem">
+          <div class="conversation-item-title" id="chat1-title">Chat 1</div>
+          <span class="icons">
+            <button
+              class="icon-button ok-button"
+              aria-labelledby="chat1-title"
+              aria-describedby="ok-description"
+            >
+              <i class="fas fa-check" aria-hidden="true"></i>
+            </button>
+            <button class="icon-button trash-button" aria-label="Deleted conversation">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+          </span>
+        </li>
+        <li id="chat2" class="list-item" role="listitem">
+          <div class="conversation-item-title" id="chat2-title">Chat 2</div>
+          <span class="icons">
+            <button
+              class="icon-button ok-button"
+              aria-labelledby="chat2-title"
+              aria-describedby="ok-description"
+            >
+              <i class="fas fa-check" aria-hidden="true"></i>
+            </button>
+            <button class="icon-button trash-button" aria-label="Deleted conversation">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+          </span>
+        </li>
+      </ul>
+
+      <ul role="list list2">
+        <li id="chat1" class="list-item" role="listitem">
+          <a href="chat.html" class="conversation-item-title" id="chat1-title">Chat 1</a>
+          <span class="icons">
+            <button class="icon-button ok-button" aria-label="Select conversation">
+              <i class="fas fa-check" aria-hidden="true"></i>
+            </button>
+            <button class="icon-button trash-button" aria-label="Deleted conversation">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+          </span>
+        </li>
+        <li id="chat2" class="list-item" role="listitem">
+          <a href="chat_2.html" class="conversation-item-title" id="chat2-title">Chat 2</a>
+          <span class="icons">
+            <button class="icon-button ok-button" aria-label="Select conversation">
+              <i class="fas fa-check" aria-hidden="true"></i>
+            </button>
+            <button class="icon-button trash-button" aria-label="Deleted conversation">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+          </span>
+        </li>
       </ul>
     </div>
 

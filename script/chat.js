@@ -36,7 +36,6 @@ function addUserMessage(text) {
   botChat.setAttribute('lang', lang)
   chatContainer.appendChild(botChat)
 
-
   const userMessageElement = document.createElement('p')
   userMessageElement.textContent = text
   botChat.appendChild(userMessageElement)
@@ -48,11 +47,11 @@ function addBotMessages() {
   const botChat = document.createElement('div') // Create a new div for bot messages
   botChat.className = 'message message-bot'
   chatContainer.appendChild(botChat)
-  
+
   const messages = messageCount % 2 === 0 ? messagesEn : messagesEs
   const lang = messageCount % 2 === 0 ? 'en' : 'es'
-  console.log("🚀  lang:", lang)
-  console.log("🚀  messageCount:", messageCount)
+  console.log('🚀  lang:', lang)
+  console.log('🚀  messageCount:', messageCount)
   messageCount++
 
   botChat.setAttribute('lang', lang)
@@ -76,3 +75,12 @@ function scrollToBottom() {
     lastMessage.scrollIntoView(true)
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  var okDescription = document.createElement('div')
+  okDescription.id = 'ok-description'
+  okDescription.hidden = true
+  okDescription.textContent = 'Select conversation'
+
+  document.body.appendChild(okDescription)
+})

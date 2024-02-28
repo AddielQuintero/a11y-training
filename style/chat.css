@@ -6,9 +6,12 @@ body {
   height: 100vh;
   background: #f4f7f6;
 }
+
+/** SIDEBAR */
 .sidebar {
   width: 250px;
-  background: #333;
+  /* background: #333; */
+  background: #000;
   color: #fff;
   padding: 20px;
   overflow-y: auto;
@@ -18,15 +21,78 @@ body {
   list-style: none;
 }
 .sidebar ul li:hover {
-  background-color: #212121;
-  border-radius: 8px;
+  /* background-color: #212121; */
+  /* background-color: #757575; */
+  /* border-radius: 8px; */
 }
 .sidebar ul a {
   color: white;
   text-decoration: none;
   display: block;
-  padding: 0.5rem 20px;
+  /* padding: 0.5rem 20px; */
 }
+
+.sidebar a {
+  /* existing styles */
+  position: relative; /* Make the parent relative to position the icons */
+  padding-right: 40px; /* Add padding to make space for icons */
+}
+
+.icon-ok,
+.icon-trash {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none; /* Hide icons by default */
+}
+.icon-button {
+  /* padding: 0; */
+  /* margin: 0; */
+  background: transparent;
+  border: none;
+}
+.icon-ok {
+  right: 20px; /* Adjust this value based on your spacing needs */
+}
+
+.sidebar a:hover .icon-ok,
+.sidebar a:hover .icon-trash,
+.sidebar a:focus .icon-ok,
+.sidebar a:focus .icon-trash {
+  display: inline; /* Show icons on hover or focus */
+}
+
+/* Add a background change on hover/focus for the link */
+.sidebar li:hover {
+  background-color: #757575;
+  border-radius: 8px;
+}
+.list2{
+  margin-top: 2rem;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px;
+}
+.list-item:focus-within {
+  background-color: #757575;
+  border-radius: 8px;
+}
+.list-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.fas {
+  /* padding-right: 15px; */
+  color: #fff;
+}
+
 .chat-window {
   flex-grow: 1;
   background: #fff;
