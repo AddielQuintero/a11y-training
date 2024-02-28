@@ -76,14 +76,19 @@ function scrollToBottom() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  var okDescription = document.createElement('div')
-  okDescription.id = 'ok-description'
-  okDescription.hidden = true
-  okDescription.textContent = 'Select conversation'
+// document.addEventListener('DOMContentLoaded', function () {
+  // var okDescription = document.createElement('div')
+  // var trashDescription = document.createElement('div')
+  // okDescription.id = 'ok-description'
+  // okDescription.hidden = true
+  // okDescription.textContent = 'Select conversation'
+  // trashDescription.id = 'trash-description'
+  // trashDescription.hidden = true
+  // trashDescription.textContent = 'Deleted conversation'
 
-  document.body.appendChild(okDescription)
-})
+  // document.body.appendChild(okDescription)
+  // document.body.appendChild(trashDescription)
+// })
 
 function initializeIcons() {
   var listItems = document.querySelectorAll('.list2 .list-item')
