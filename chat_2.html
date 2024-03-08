@@ -3,60 +3,325 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chat Accesible</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="style/chat.css" />
-    <script>
-      let i = 0
-      const messages = [
-        'Hello, how are you?',
-        'Welcome to the accessible chat!',
-        'This message will be announced automatically.',
-        'Exploring accessibility features.',
-        'Text is updated and read aloud.',
-        'Is there anything else I can assist you with today?',
-      ]
-
-      function addMessage() {
-        let chatBox = document.getElementById('chat')
-
-        if (!chatBox) {
-          chatBox = document.createElement('div')
-          chatBox.id = 'chat'
-          chatBox.className = 'message message-bot'
-
-          const chatContainer = document.querySelector('.chat-container')
-          chatContainer.appendChild(chatBox)
-        }
-
-        if (i < messages.length) {
-          const message = document.createElement('p')
-          message.textContent = messages[i++]
-          chatBox.appendChild(message)
-          setTimeout(addMessage, 3000)
-        }
-      }
-    </script>
   </head>
   <body>
     <div class="sidebar">
-      <!-- <div>New chat</div> -->
-      <ul role="list">
-        <li role="listitem"><a href="chat.html">Chat 1</a></li>
-        <li role="listitem"><a href="chat_2.html">Chat 2</a></li>
-      </ul>
+      <div>
+        <div>
+          <h3>Example one</h3>
+        </div>
+        <ul role="list">
+          <li id="chat-1" class="list-item" role="listitem">
+            <span class="conversation-item-title" id="chat1-title">Chat 1</span>
+            <div class="icons">
+              <button
+                id="ok-button"
+                class="icon-button"
+                aria-labelledby="chat1-title ok-button"
+                aria-label="Select conversation"
+                onclick="window.location.href='chat.html';"
+              >
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </button>
+              <button
+                id="trash-button"
+                class="icon-button"
+                aria-labelledby="chat1-title trash-button"
+                aria-label="Delete conversation"
+              >
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+          <li id="chat-2" class="list-item" role="listitem">
+            <span class="conversation-item-title" id="chat2-title">Chat 2</span>
+            <div class="icons">
+              <button
+                id="ok-button"
+                class="icon-button"
+                aria-labelledby="chat2-title ok-button"
+                aria-label="Select conversation"
+                onclick="window.location.href='chat_2.html';"
+              >
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </button>
+              <button
+                id="trash-button"
+                class="icon-button"
+                aria-labelledby="chat2-title trash-button"
+                aria-label="Delete conversation"
+              >
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="chat-window">
+    <button
+      class="sidebar-btn-toggle"
+      title="Hide conversation history"
+      aria-label="Hide conversation history"
+    >
+      <i class="fas fa-solid fa-angle-left" aria-hidden="true"></i>
+    </button>
+
+    <div class="chat">
       <div class="chat-header">
         <h1>AlliBot</h1>
       </div>
-      <div class="chat-container" aria-live="polite" aria-relevant="additions">
-        <div class="message message-user">
-          <p>Hello!!!!!!!!</p>
+      <div class="chat-window" tabindex="0" aria-labelledby="chat-description" onscroll="checkScroll()">
+        <span id="chat-description" class="visually-hidden" aria-hidden="true">AlliBot messages</span>
+        <div class="chat-container" aria-live="polite" aria-relevant="additions">
+          <!-- The chat messages will be added here -->
+          <div class="scroll-container">
+            <button
+              id="scrollToBottomBtn"
+              tabindex="0"
+              class="scroll-to scroll-to-bottom"
+              aria-label="Scroll to latest message"
+              onclick="scrollToBottom()"
+            >
+              <i class="fas fa-arrow-down"></i>
+            </button>
+          </div>
+          <div class="message-box" role="region" aria-label="You asked">
+            <span aria-hidden="true" class="label user-label">YOU</span>
+            <div class="message message-user" lang="en">
+              <div class="message-content">
+                <p>what is 3.3.2 checkpoint</p>
+              </div>
+            </div>
+          </div>
+          <div class="message-box" role="region" aria-label="Bot replied">
+            <span aria-hidden="true" class="label bot-label">BOT</span>
+            <div class="message message-bot" lang="en">
+              <div class="message-content">
+                <p>
+                  Checkpoint 3.3.2 in the context of web accessibility refers to the Web Content Accessibility
+                  Guidelines (WCAG) Success Criterion (SC) 3.3.2, which is titled "Labels or Instructions."
+                  This criterion is part of WCAG 2.1, which is a set of guidelines published by the World Wide
+                  Web Consortium (W3C) to make web content more accessible to people with disabilities.
+                </p>
+                <p>
+                  SC 3.3.2 requires that labels or instructions are provided when content requires user input.
+                  This means that any time a user is expected to enter information into a form or other input
+                  field, there should be clear labeling or instructions to help them understand what is
+                  required. This is important for users with cognitive limitations, visual impairments, and
+                  for
+                </p>
+              </div>
+              <div class="message-rating">
+                <button class="rate-icon-button css-ii2owq" aria-label="Copy answer">
+                  <i class="fas fa-copy" aria-hidden="true"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer possitive"
+                >
+                  <i class="fas fa-solid fa-thumbs-up"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer negative"
+                >
+                  <i class="fas fa-solid fa-thumbs-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="message-box" role="region" aria-label="You asked">
+            <span aria-hidden="true" class="label user-label">YOU</span>
+            <div class="message message-user" lang="es">
+              <div class="message-content"><p>give me an example</p></div>
+            </div>
+          </div>
+          <div class="message-box" role="region" aria-label="Bot replied">
+            <span aria-hidden="true" class="label bot-label">BOT</span>
+            <div class="message message-bot" lang="es">
+              <div class="message-content">
+                <p>
+                  Certainly! Let's consider a scenario where a user needs to fill out a registration form on a
+                  website. To comply with WCAG Success Criterion 3.3.2, we need to ensure that all form
+                  elements have clear labels and instructions. Below is an example of an accessible
+                  registration form:
+                </p>
+                <ul>
+                  <li>
+                    Each input field is paired with a <code>&lt;label&gt;</code> element that clearly
+                    describes the purpose of the input field. This helps users understand what information is
+                    required.
+                  </li>
+                  <li>
+                    The <code>for</code> attribute in the <code>&lt;label&gt;</code> tags matches the
+                    <code>id</code> attribute of the corresponding <code>&lt;input&gt;</code> elements,
+                    creating a programmatic link between the label and the input field. This is essential for
+                    assistive technologies to announce the label when the input field receives focus.
+                  </li>
+                  <li>
+                    The <code>aria-describedby</code> attribute is used to associate additional descriptive
+                    text with the input fields. This text provides extra guidance on what is expected, such as
+                    the format of the username or password requirements.
+                  </li>
+                  <li>
+                    The <code>required</code> attribute on the input fields indicates that they must be filled
+                    out before the form can be submitted. This is important for both accessibility and general
+                    form validation.
+                  </li>
+                  <li>
+                    The <code>class="input-hint"</code> on the div elements is used to apply styling that
+                    differentiates the hint text from other text, which can be beneficial for users with
+                    visual impairments or cognitive disabilities.
+                  </li>
+                </ul>
+                <p>Good Practices:</p>
+                <ul>
+                  <li>Use clear and concise labels for form inputs.</li>
+                  <li>
+                    Group related form elements using <code>&lt;fieldset&gt;</code> and
+                    <code>&lt;legend&gt;</code> elements when appropriate.
+                  </li>
+                  <li>
+                    Provide instructions or hints to help users understand how to complete the form fields.
+                  </li>
+                  <li>
+                    Use <code>aria-describedby</code> to link additional descriptive information to form
+                    inputs.
+                  </li>
+                  <li>
+                    Ensure that error messages are announced by assistive technologies and provide clear
+                    instructions on how to fix the error.
+                  </li>
+                </ul>
+              </div>
+              <div class="message-rating">
+                <button class="rate-icon-button css-ii2owq" aria-label="Copy answer">
+                  <i class="fas fa-copy" aria-hidden="true"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer possitive"
+                >
+                  <i class="fas fa-solid fa-thumbs-up"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer negative"
+                >
+                  <i class="fas fa-solid fa-thumbs-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="message-box" role="region" aria-label="You asked">
+            <span aria-hidden="true" class="label user-label">YOU</span>
+            <div class="message message-user" lang="es">
+              <div class="message-content">
+                <p>diferencia entre los checkpoints 1.4.11 y 1.4.1</p>
+              </div>
+            </div>
+          </div>
+          <div class="message-box" role="region" aria-label="Bot replied">
+            <span aria-hidden="true" class="label bot-label">BOT</span>
+            <div class="message message-bot" lang="es">
+              <div class="message-content">
+                <p>
+                  Los checkpoints 1.4.11 y 1.4.1 se refieren a dos criterios de éxito diferentes dentro de las
+                  Pautas de Accesibilidad para el Contenido Web (WCAG) 2.1, que se centran en aspectos
+                  distintos de la accesibilidad visual.
+                </p>
+                <p>
+                  Criterio de Éxito 1.4.1 Uso del Color (Checkpoint 1.4.1): Este criterio de éxito se centra
+                  en el uso del color como único medio visual para transmitir información, indicar una acción,
+                  solicitar una respuesta o distinguir un elemento visual. Según este criterio, el color no
+                  debe ser la única señal visual utilizada, ya que los usuarios que no pueden percibir el
+                  color (por ejemplo, personas con daltonismo) no podrían acceder a la información. Por lo
+                  tanto, debe haber otros indicadores visuales o textuales que proporcionen la misma
+                  información que el color.
+                </p>
+                <p>Ejemplo de buena práctica para cumplir con el Criterio de Éxito 1.4.1:</p>
+                <ul>
+                  <li>
+                    Asegurarse de que los enlaces dentro de los textos se subrayen o se diferencien de alguna
+                    otra manera además del color.
+                  </li>
+                  <li>
+                    Proporcionar etiquetas de texto o iconos adicionales para indicar errores en formularios,
+                    no solo cambiar el color de los campos de entrada.
+                  </li>
+                </ul>
+                <p>
+                  Criterio de Éxito 1.4.11 Contraste de No Texto (Checkpoint 1.4.11): Este criterio de éxito
+                  se centra en el contraste mínimo entre los elementos gráficos y sus respectivos fondos. Esto
+                  incluye componentes de la interfaz de usuario (como botones y formularios) y elementos
+                  gráficos que son necesarios para comprender el contenido o la funcionalidad. El objetivo es
+                  asegurar que estos elementos sean visibles y distinguibles para los usuarios con problemas
+                  de visión o en condiciones de luz desfavorables. El contraste mínimo recomendado es de 3:1
+                  para los componentes de la interfaz de usuario y los estados visuales de los elementos
+                  gráficos.
+                </p>
+                <p>Ejemplo de buena práctica para cumplir con el Criterio de Éxito 1.4.11:</p>
+                <ul>
+                  <li>
+                    Asegurarse de que los botones y controles interactivos tengan un contraste suficiente con
+                    el fondo, incluso cuando se encuentren en estados como "hover" o "focus".
+                  </li>
+                  <li>
+                    Verificar que los iconos y otros elementos gráficos esenciales tengan suficiente contraste
+                    con sus fondos para que sean fácilmente identificables.
+                  </li>
+                </ul>
+                <p>
+                  Ambos criterios son fundamentales para garantizar que el contenido sea accesible para los
+                  usuarios con discapacidades visuales y para aquellos que operan en entornos con condiciones
+                  de iluminación subóptimas.
+                </p>
+              </div>
+              <div class="message-rating">
+                <button class="rate-icon-button css-ii2owq" aria-label="Copy answer">
+                  <i class="fas fa-copy" aria-hidden="true"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer possitive"
+                >
+                  <i class="fas fa-solid fa-thumbs-up"></i></button
+                ><button
+                  class="rate-icon-button css-ii2owq"
+                  aria-pressed="false"
+                  aria-label="Rate answer negative"
+                >
+                  <i class="fas fa-solid fa-thumbs-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-container">
+            <button
+              id="scrollToTopBtn"
+              tabindex="0"
+              class="scroll-to scroll-to-top"
+              aria-label="Scroll to first message"
+              onclick="scrollToTop()"
+            >
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="message-input">
+          <input id="userInput" type="text" placeholder="Type your message here and press Enter" />
         </div>
       </div>
     </div>
-    <div class="message-input">
-      <button onclick="addMessage()">Enviar Mensaje</button>
-    </div>
+
+    <script type="text/javascript" src="script/chat.js"></script>
   </body>
 </html>

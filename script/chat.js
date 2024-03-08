@@ -77,17 +77,17 @@ function scrollToBottom() {
 }
 
 // document.addEventListener('DOMContentLoaded', function () {
-  // var okDescription = document.createElement('div')
-  // var trashDescription = document.createElement('div')
-  // okDescription.id = 'ok-description'
-  // okDescription.hidden = true
-  // okDescription.textContent = 'Select conversation'
-  // trashDescription.id = 'trash-description'
-  // trashDescription.hidden = true
-  // trashDescription.textContent = 'Deleted conversation'
+// var okDescription = document.createElement('div')
+// var trashDescription = document.createElement('div')
+// okDescription.id = 'ok-description'
+// okDescription.hidden = true
+// okDescription.textContent = 'Select conversation'
+// trashDescription.id = 'trash-description'
+// trashDescription.hidden = true
+// trashDescription.textContent = 'Deleted conversation'
 
-  // document.body.appendChild(okDescription)
-  // document.body.appendChild(trashDescription)
+// document.body.appendChild(okDescription)
+// document.body.appendChild(trashDescription)
 // })
 
 function initializeIcons() {
@@ -97,6 +97,51 @@ function initializeIcons() {
     listItem.setAttribute('tabindex', '0')
     listItem.querySelector('a').setAttribute('tabindex', '-1')
   })
+
+  scrollToBottom()
 }
 
+function scrollToBottom() {
+  const chatContainer = document.querySelector('.chat-window')
+  const messageBox = document.querySelector('.message-box')
+
+  // messageBox.setAttribute('tabindex', '-1')
+  // chatContainer.scrollTop = chatContainer.scrollHeight;
+  chatContainer.scrollTo({
+    top: chatContainer.scrollHeight,
+    behavior: 'smooth',
+  })
+  const inputField = document.getElementById('userInput')
+  inputField.focus()
+}
+
+function scrollToTop() {
+  const chatContainer = document.querySelector('.chat-window')
+  chatContainer.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+  const messageBox = document.querySelector('.message-box')
+  console.log("🚀  messageBox:", messageBox.firstElementChild)
+  messageBox.setAttribute('tabindex', '0')
+  setTimeout(() => {
+    messageBox.focus()
+  }, 500)
+  messageBox.setAttribute('tabindex', '-1')
+}
+
+function checkScroll() {
+  const chatContainer = document.querySelector('.chat-window')
+  const scrollToBottomBtn = document.getElementById('scrollToBottomBtn')
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn')
+
+  const isAtTop = chatContainer.scrollTop === 0
+  scrollToTopBtn.style.display = isAtTop ? 'none' : 'flex'
+
+  const isAtBottom = chatContainer.scrollHeight - chatContainer.scrollTop === chatContainer.clientHeight
+  scrollToBottomBtn.style.display = isAtBottom ? 'none' : 'flex'
+}
+
+document.getElementById('scrollToBottomBtn').style.display = 'none'
+document.getElementById('scrollToTopBtn').style.display = 'none'
 window.addEventListener('load', initializeIcons)

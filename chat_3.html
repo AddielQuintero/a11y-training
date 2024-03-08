@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Accesible</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style/chat.css" />
+    <script>
+      let i = 0
+      const messages = [
+        'Hello, how are you?',
+        'Welcome to the accessible chat!',
+        'This message will be announced automatically.',
+        'Exploring accessibility features.',
+        'Text is updated and read aloud.',
+        'Is there anything else I can assist you with today?',
+      ]
+
+      function addMessage() {
+        let chatBox = document.getElementById('chat')
+
+        if (!chatBox) {
+          chatBox = document.createElement('div')
+          chatBox.id = 'chat'
+          chatBox.className = 'message message-bot'
+
+          const chatContainer = document.querySelector('.chat-container')
+          chatContainer.appendChild(chatBox)
+        }
+
+        if (i < messages.length) {
+          const message = document.createElement('p')
+          message.textContent = messages[i++]
+          chatBox.appendChild(message)
+          setTimeout(addMessage, 3000)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div>
+        <div>
+          <h3>Example one</h3>
+        </div>
+        <ul role="list">
+          <li id="chat-1" class="list-item" role="listitem">
+            <a href="chat.html" class="conversation-item-title" id="chat1-title">Chat 1</a>
+            <div class="icons">
+              <button
+                id="ok-button"
+                class="icon-button"
+                aria-labelledby="chat1-title ok-button"
+                aria-label="Select conversation"
+                onclick="window.location.href='chat.html';"
+              >
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </button>
+              <button
+                id="trash-button"
+                class="icon-button"
+                aria-labelledby="chat1-title trash-button"
+                aria-label="Delete conversation"
+              >
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+          <li id="chat-2" class="list-item" role="listitem">
+            <a href="chat_2.html" class="conversation-item-title" id="chat2-title">Chat 2</a>
+            <div class="icons">
+              <button
+                id="ok-button"
+                class="icon-button"
+                aria-labelledby="chat2-title ok-button"
+                aria-label="Select conversation"
+                onclick="window.location.href='chat_2.html';"
+              >
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </button>
+              <button
+                id="trash-button"
+                class="icon-button"
+                aria-labelledby="chat2-title trash-button"
+                aria-label="Delete conversation"
+              >
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chat-window">
+      <div class="chat-header">
+        <h1>AlliBot</h1>
+      </div>
+      <div class="chat-container" aria-live="polite" aria-relevant="additions">
+        <div class="message message-user">
+          <p>Hello!!!!!!!!</p>
+        </div>
+      </div>
+    </div>
+    <div class="message-input">
+      <button onclick="addMessage()">Enviar Mensaje</button>
+    </div>
+  </body>
+</html>

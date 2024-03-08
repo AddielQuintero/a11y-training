@@ -9,7 +9,7 @@ body {
 
 /** SIDEBAR */
 .sidebar {
-  width: 250px;
+  min-width: 250px;
   /* background: #333; */
   background: #000;
   color: #fff;
@@ -20,22 +20,19 @@ body {
   padding: 0;
   list-style: none;
 }
-.sidebar ul li:hover {
-  /* background-color: #212121; */
-  /* background-color: #757575; */
-  /* border-radius: 8px; */
-}
+
 .sidebar ul a {
   color: white;
   text-decoration: none;
   display: block;
-  /* padding: 0.5rem 20px; */
 }
 
 .sidebar a {
-  /* existing styles */
-  position: relative; /* Make the parent relative to position the icons */
-  padding-right: 40px; /* Add padding to make space for icons */
+  position: relative;
+}
+
+.sidebar .fas {
+  color: #fff;
 }
 
 .icon-ok,
@@ -68,7 +65,7 @@ body {
   background-color: #757575;
   border-radius: 8px;
 }
-.list2{
+.list2 {
   margin-top: 2rem;
 }
 .list-item {
@@ -87,16 +84,15 @@ body {
   border: none;
   cursor: pointer;
 }
-
-.fas {
-  /* padding-right: 15px; */
-  color: #fff;
+.chat {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
-
 .chat-window {
   flex-grow: 1;
   background: #fff;
-  padding: 20px 20px 60px;
+  padding: 20px 70px 60px;
   overflow-y: auto;
 }
 .chat-header {
@@ -108,6 +104,7 @@ body {
   margin: 0;
   font-size: 20px;
 }
+
 .message {
   margin-bottom: 20px;
   line-height: 1.4;
@@ -134,7 +131,7 @@ body {
   position: fixed;
   bottom: 0;
   left: 310px;
-  width: calc(100% - 350px);
+  width: calc(100% - 365px);
   padding: 10px;
   background: #f4f7f6;
   border: 1px solid #ccc;
@@ -154,13 +151,97 @@ body {
   border-radius: 5px;
 }
 
-.visually-hidden { 
-  position: absolute; 
-  width: 1px; 
-  height: 1px; 
-  margin: -1px; 
-  padding: 0; 
-  overflow: hidden; 
-  clip: rect(0,0,0,0); 
-  border: 0; 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.user-label {
+  margin-top: 25px;
+}
+
+.bot-label {
+  margin-top: 5px;
+}
+
+.message-box {
+  display: flex;
+  gap: 1rem;
+}
+
+.message-rating {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.css-ii2owq {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  appearance: none;
+  font-size: 1.3rem;
+  padding: 8px;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.54);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.css-ii2owq:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.rate-icon-button:focus,
+.rate-icon-button:hover,
+.sidebar-btn-toggle:hover,
+.sidebar-btn-toggle:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.54) !important;
+}
+
+.sidebar-btn-toggle {
+  display: block;
+  position: fixed;
+  top: 50vh;
+  left: 294px !important;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.fa-angle-left {
+  font-size: 2rem;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 50%;
+  bottom: 5rem;
+  transform: translateX(50%);
+  z-index: 100;
+}
+.scroll-to {
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  outline: 1px solid;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.scroll-to:hover,
+.scroll-to:focus {
+  outline: 2px solid;
 }
