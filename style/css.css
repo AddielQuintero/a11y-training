@@ -198,3 +198,7 @@ nav .navigation__menu {
   white-space: nowrap;
   border-width: 0;
 }
+
+.section-two_content dd {
+  margin: 0;
+}
