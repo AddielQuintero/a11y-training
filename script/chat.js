@@ -144,4 +144,4 @@ function checkScroll() {
 
 document.getElementById('scrollToBottomBtn').style.display = 'none'
 document.getElementById('scrollToTopBtn').style.display = 'none'
-window.addEventListener('load', initializeIcons)
+// window.addEventListener('load', initializeIcons)

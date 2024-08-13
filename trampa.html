@@ -44,6 +44,14 @@
       </p>
     </header>
 
+    <div id="trap" aria-label="Área atrapante de teclado" role="region" tabindex="-1">
+      <h2>Trampa de Teclado</h2>
+      <p>Intenta salir de esta trampa usando <kbd>Tab</kbd>.</p>
+      <button id="first">Primer Botón</button>
+      <input type="text" placeholder="Caja de texto" />
+      <button id="last">Último Botón</button>
+    </div>
+
     <main role="none" id="main">
       <section id="section-one">
         <div class="section-one_content">
@@ -161,7 +169,7 @@
 
             ...
           </form> -->
-      
+
           <!-- <form
             role="form"
             method="post"
@@ -469,6 +477,31 @@
       </div>
     </footer>
 
+    <script>
+      const trap = document.getElementById('trap');
+      const firstFocusableElement = document.getElementById('first');
+      const lastFocusableElement = document.getElementById('last');
+
+      document.addEventListener('keydown', function(event) {
+          if (event.key === 'Tab') {
+              if (event.shiftKey) { // Shift + Tab
+                  if (document.activeElement === firstFocusableElement) {
+                      event.preventDefault();
+                      lastFocusableElement.focus();
+                  }
+              } else { // Tab
+                  if (document.activeElement === lastFocusableElement) {
+                      event.preventDefault();
+                      firstFocusableElement.focus();
+                  }
+              }
+          }
+      });
+
+      // Establecer el foco inicial
+      firstFocusableElement.focus();
+  </script>
+  
     <script type="text/javascript" src="script/script.js"></script>
     <script type="text/javascript" src="script/textarea-character-counter.js"></script>
     <!-- <script type="text/javascript" src="script/tabindex.js"></script> -->
